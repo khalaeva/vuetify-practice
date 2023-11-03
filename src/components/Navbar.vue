@@ -1,0 +1,42 @@
+<template>
+<nav>
+    <v-toolbar class="bg-grey-lighten-4">
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="text-grey"></v-app-bar-nav-icon>
+        <v-toolbar-title class="text-uppercase text-grey">
+            <span class="font-weight-light">Todo</span>
+            <span>Ninja</span>
+        </v-toolbar-title>
+        <v-btn flat color="grey">
+            <span>Sign Out</span>
+            <v-icon>mdi-logout-variant</v-icon>
+        </v-btn>
+    </v-toolbar>
+
+    <v-navigation-drawer v-model="drawer" class="bg-primary">
+        <v-list>
+            <v-list-subheader class="text-white">Dashboard</v-list-subheader>
+            <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+            >
+                <template v-slot:prepend>
+                <v-icon :icon="item.icon"></v-icon>
+                </template>
+        
+                <v-list-item-title v-text="item.text"></v-list-item-title>
+            </v-list-item>
+        </v-list>
+    </v-navigation-drawer>
+</nav>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const drawer = ref(false)
+const items = [
+    { text: 'Real-Time', icon: 'mdi-clock' },
+    { text: 'Audience', icon: 'mdi-account' },
+    { text: 'Conversions', icon: 'mdi-flag' },
+  ]
+</script>
