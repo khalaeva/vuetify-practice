@@ -32,6 +32,13 @@
                     <span class="text-caption text-lowercase">
                         By person
                     </span>
+                    <v-tooltip
+                        content-class="custom-tooltip"
+                        activator="parent"
+                        location="top"
+                    >
+                    Sort projects by person
+                    </v-tooltip>
                 </v-btn>
             </v-row>
             <v-card flat v-for="project in projects" :key="project.title" :class="`project ${project.status}`">

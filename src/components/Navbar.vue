@@ -13,7 +13,7 @@
     </v-toolbar>
 
     <v-navigation-drawer v-model="drawer" class="bg-primary">
-        <v-list>
+        <v-list class="mt-7">
             <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -34,8 +34,8 @@ import { ref } from 'vue';
 
 const drawer = ref(false)
 const items = [
-    { text: 'Real-Time', icon: 'mdi-clock', route: '/' },
-    { text: 'Audience', icon: 'mdi-account', route: '/projects' },
-    { text: 'Conversions', icon: 'mdi-flag', route: '/team'},
-  ]
+    { icon: 'mdi-view-dashboard', text: 'Dashboard', route: '/' },
+    { icon: 'mdi-folder', text: 'My Projects', route: '/projects' },
+    { icon: 'mdi-account', text: 'Team', route: '/team' },
+]
 </script>
