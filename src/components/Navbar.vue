@@ -6,14 +6,49 @@
             <span class="font-weight-light">Todo</span>
             <span>Ninja</span>
         </v-toolbar-title>
+
+        <v-menu>
+          <template v-slot:activator="{ props }">
+            <v-btn color="grey" v-bind="props">
+              <v-icon>mdi-chevron-down</v-icon>
+              Menu
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="link in items"
+              :key="link.text"
+              router :to="link.route"
+              color="primary"
+            >
+              <v-list-item-title>{{ link.text }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
         <v-btn flat color="grey">
             <span>Sign Out</span>
             <v-icon>mdi-logout-variant</v-icon>
         </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer v-model="drawer" class="bg-primary">
-        <v-list class="mt-7">
+    <v-navigation-drawer v-model="drawer" class="bg-deep-purple-lighten-1" width="350">
+        <v-col class="mb-5 mt-3">
+            <v-row justify="center" class="mt-5">
+                <v-avatar size="130">
+                    <v-img src="/avatar-1.png"></v-img>
+                </v-avatar>
+            </v-row>
+            <v-row justify="center">
+                <p class="text-white text-h5 mt-1" >
+                    The Net Ninja
+                </p>
+            </v-row>
+            <v-row justify="center" class="mt-7">
+              <popup/>
+            </v-row>
+        </v-col>
+        <v-list>
             <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -31,6 +66,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import Popup from '@/components/Popup.vue'
 
 const drawer = ref(false)
 const items = [

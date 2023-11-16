@@ -5,8 +5,8 @@ import { createVuetify } from 'vuetify'
 
 export default createVuetify({
   theme: {
-    primary: '#9652ff',
-    success: '#3cd1c2',
+    primary: '#B39DDB',
+    success: '#C8E6C9',
     info: '#ffaa2c',
     error: '#f83e70',
   },

@@ -1,6 +1,5 @@
 <template>
     <div class="dashboard">
-        <h1 class="text-h5 text-grey">This is an about page</h1>
         <v-container class="my-5">
             <v-row class="mb-3">
                 <v-btn 
